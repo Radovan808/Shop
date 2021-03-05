@@ -3,9 +3,10 @@ package com.rado.Shop.db.service.impl;
 import com.rado.Shop.db.repository.CustomerRepository;
 import com.rado.Shop.db.service.api.CustomerService;
 import com.rado.Shop.domain.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
 
@@ -14,7 +15,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> getCustomer() {
+    public List<Customer> getCustomers() {
         return customerRepository.getAll();
     }
 

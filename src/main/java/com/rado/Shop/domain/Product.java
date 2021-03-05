@@ -18,7 +18,7 @@ public class Product {
     private String description;
     @NonNull
     private double price;
-    @NonNull
+    @Nullable
     private Timestamp createdAt;
     @NonNull
     private int available;
@@ -77,7 +77,7 @@ public class Product {
         this.price = price;
     }
 
-    @NonNull
+    @Nullable
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -99,7 +99,7 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return merchantId == product.merchantId && Double.compare(product.price, price) == 0 && available == product.available && Objects.equals(id, product.id) && name.equals(product.name) && description.equals(product.description) && createdAt.equals(product.createdAt);
+        return merchantId == product.merchantId && Double.compare(product.price, price) == 0 && available == product.available && Objects.equals(id, product.id) && name.equals(product.name) && description.equals(product.description) && createdAt.getTime() == product.createdAt.getTime();
     }
 
     @Override
